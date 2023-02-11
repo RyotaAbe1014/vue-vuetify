@@ -5,7 +5,7 @@ import Counter from './components/Counter.vue';
 
 // リアクティブな状態
 // ref() でラップすることで、リアクティブな状態になる(変更を検知できる)
-// 型付けは Ref<number>　のようにRefを使う
+// 型付けは Ref<number>のようにRefを使う
 const count: Ref<number> = ref(0)
 
 // これはリアクティブではない(変更が検知できない)
@@ -22,9 +22,10 @@ const increment = (): void => {
 }
 
 // typeで型を定義する
-type Item = {
+type LinkItem = {
   title: string;
   icon: string;
+  toUrl?: string;
 }
 
 // interfaceで型を定義する
@@ -34,10 +35,9 @@ type Item = {
 // }
 
 // TypeScript で定義した配列
-const items: Array<Item> = [
-  { title: 'Home', icon: 'mdi-home' },
-  { title: 'About', icon: 'mdi-account' },
-  { title: 'Contact', icon: 'mdi-email' },
+const items: Array<LinkItem> = [
+  { title: 'Home', icon: 'mdi-home', toUrl: '/' },
+  { title: 'About', icon: 'mdi-account', toUrl: '/about' },
 ]
 
 
@@ -70,6 +70,8 @@ onMounted(() => {
 // onRenderTriggered(() => {
 //   console.log(`The count is going to be updated to ${count.value}.`)
 // })
+
+
 </script>
 
 <template>
@@ -79,7 +81,7 @@ onMounted(() => {
       <v-navigation-drawer>
         <v-list>
           <div v-for="item in items" :key="item.title">
-            <v-list-item :title="item.title" :prepend-icon="item.icon" :value="item.title"></v-list-item>
+            <v-list-item :title="item.title" :prepend-icon="item.icon" :value="item.title" :to="item.toUrl"></v-list-item>
           </div>
         </v-list>
       </v-navigation-drawer>
@@ -94,6 +96,7 @@ onMounted(() => {
               <v-alert v-if="!disabled" type="success">10で割り切れるときにアラートが出ます</v-alert>
             </v-col>
           </v-row>
+          <RouterView />
         </v-container>
       </v-main>
     </v-layout>
