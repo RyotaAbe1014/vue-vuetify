@@ -38,6 +38,7 @@ type LinkItem = {
 const items: Array<LinkItem> = [
   { title: 'Home', icon: 'mdi-home', toUrl: '/' },
   { title: 'About', icon: 'mdi-account', toUrl: '/about' },
+  { title: 'Inject', icon: 'mdi-needle', toUrl: '/inject_sample' },
 ]
 
 
@@ -81,18 +82,18 @@ onMounted(() => {
       <v-navigation-drawer>
         <v-list>
           <div v-for="item in items" :key="item.title">
-            <v-list-item :title="item.title" :prepend-icon="item.icon" :value="item.title" :to="item.toUrl"></v-list-item>
+            <v-list-item :title="item.title" :prepend-icon="item.icon" :value="item.title"
+              :to="item.toUrl"></v-list-item>
           </div>
         </v-list>
       </v-navigation-drawer>
-      <v-main>
+      <v-main class="main">
         <v-container>
           <v-row>
             <v-col cols="12">
               <h1>カウンターテスト</h1>
               <Counter :count="count" />
               <CountUpButton :count="count" :increment="increment" />
-              <p>{{ disabled }}</p>
               <v-alert v-if="!disabled" type="success">10で割り切れるときにアラートが出ます</v-alert>
             </v-col>
           </v-row>
@@ -102,3 +103,9 @@ onMounted(() => {
     </v-layout>
   </v-app>
 </template>
+
+<style scoped>
+.main {
+  background-color: #E0F2F1;
+}
+</style>

@@ -14,5 +14,5 @@ onUpdated(() => {
 </script>
 
 <template>
-  <v-sheet>現在のカウントは{{ props.count }}です</v-sheet>
+  <p>現在のカウントは{{ props.count }}です</p>
 </template>

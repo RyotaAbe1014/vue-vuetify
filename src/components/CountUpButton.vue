@@ -9,5 +9,5 @@ const props = defineProps<Props>()
 </script>
 
 <template>
-  <v-btn @click="increment">Increment</v-btn>
+  <v-btn @click="increment" color="teal-lighten-1" prepend-icon="mdi-numeric-positive-1">Increment</v-btn>
 </template>
