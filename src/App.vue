@@ -39,6 +39,7 @@ const items: Array<LinkItem> = [
   { title: 'Home', icon: 'mdi-home', toUrl: '/' },
   { title: 'About', icon: 'mdi-account', toUrl: '/about' },
   { title: 'Inject', icon: 'mdi-needle', toUrl: '/inject_sample' },
+  { title: 'Axios', icon: 'mdi-web', toUrl: '/axios_test' },
 ]
 
 
