@@ -5,3 +5,6 @@ export const userNameInjectionKey: InjectionKey<Ref<string>> = Symbol()
 
 // リアクティブな値を注入するためのキーを定義する
 export const userNameReactiveInjectionKey: InjectionKey<() => void> = Symbol()
+
+
+export const getDogInjectionKey: InjectionKey<() => void> = Symbol()
